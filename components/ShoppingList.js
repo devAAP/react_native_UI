@@ -3,8 +3,9 @@ import React from 'react'
 
 const ShoppingList = () => {
   return (
-    <View>
-      <Text>ShoppingList</Text>
+    <View style={{}}>
+      <Image source={require('../assets/images/cat_blue.jpg')}/>
+      
     </View>
   )
 }
