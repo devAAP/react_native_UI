@@ -6,16 +6,35 @@ import SignupScreen from './components/SignupScreen';
 import ContactList from './components/ContactList'
 import EditProfile from './components/EditProfile';
 import ShoppingList from './components/ShoppingList'
+import Shopping from './Layouts/Shopping'
+import Payment from './Layouts/Payment'
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import Home from './screens/Home'
+import Profile from './screens/Profile'
+import Setting from './screens/Setting'
+import { AntDesign } from '@expo/vector-icons';
+
+
+const Stack =  createNativeStackNavigator();
 
 const App = () => {
   
   return (
-    <View style={styles.container}>
+    <NavigationContainer >
+      <Stack.Navigator initialRouteName="Home" screenOptions={{
+        headerStyle: {backgroundColor:'red'}, headerRight: ()=> (<AntDesign name="search1" size={24} color="black" />),
       
-     <EditProfile/>
-     
-    <StatusBar style="auto" />
-    </View>
+      }}>
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="Settings" component={Setting} />
+      </Stack.Navigator>
+    </NavigationContainer>
+    // <View style={styles.container}>
+    //  <Payment/>
+    // <StatusBar style="auto" />
+    // </View>
   )
 }
 
@@ -28,7 +47,6 @@ const styles = StyleSheet.create({
     
     paddingLeft: 60,
     paddingRight: 60,
-
 
   }
 })
